@@ -1,0 +1,168 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(240, 246, 247);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 64vh;
+    max-width: 980px; 
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20vh
+}
+
+.greeting_block{
+    width: 50%;
+    text-align: left;
+    padding: 2.5rem;
+}
+
+.facebook_logo{
+    color: rgb(18, 104, 254);
+    font-weight: 790;
+    font-size: 3em;
+}
+
+.main_text{
+    margin-top: -1.5rem;
+	font-size: 1.5rem;
+}
+
+.login_form{
+    text-align: center;
+    width: 50%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=text]{
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+button{
+    border: none;
+    outline: none;
+    margin-bottom: 0.75rem;
+}
+
+.enter_button{
+    background-color: rgb(18, 104, 254);
+    color: white;
+    padding: 0.75rem;
+    display: inline-block;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    position: relative;
+}
+
+.forgot_password{
+    font-size:13px;
+    color: rgb(18, 104, 254);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.forgot_password::after {
+	content: '';
+	position: absolute;
+	bottom: -1rem;
+	display: flex;
+	height: 1px;
+	width: 100%;
+	background: #efeded;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.create_account_button{
+    background-color: rgb(21, 174, 21);
+    color: white;
+    padding-right: 1rem;
+	padding-left: 1rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	max-width: 14rem;
+	align-self: center;
+	border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.text_after_form{
+    text-align: center;
+    font-size: 12px;
+    
+}
+
+footer{
+    text-align: left;
+    font-size: 11px;
+    color: gray;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    margin-top: auto;
+    width: 100%;
+    padding: 1rem 0;
+    line-height: 1.3;
+}
+
+.footer_info{
+    max-width: 980px; 
+    width: 100%;
+    padding-left: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer_links_languages,
+.footer_links_info{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-bottom: 6px;
+}
+
+footer button{
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 11px;
+    color: #737373;
+    cursor: pointer;
+    margin-bottom: 0;   /* сбросить общий margin */
+    line-height: 1.2; 
+}
+
+footer hr{
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 6px 0;
+}
+
