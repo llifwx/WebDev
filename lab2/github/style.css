@@ -12,7 +12,7 @@ body {
     padding: 56px 24px 80px;
     text-align: center;
 }
-.hero {
+.header {
     margin-bottom: 24px;
 }
 h1.title {
@@ -37,6 +37,12 @@ h1.title {
     text-decoration: none;
     font-weight: 600;
     margin-bottom: 44px;
+    transition: 0.3s ease;
+}
+
+.cta:hover {
+    background: linear-gradient(rgb(30, 30, 30), rgb(10, 10, 10));
+    transform: scale(1.03);
 }
 
 
@@ -110,6 +116,12 @@ h1.title {
     background: linear-gradient(rgb(61, 61, 61), black);
     color: white;
     margin-bottom: 44px;
+    transition: 0.3s ease;
+}
+
+.black-button:hover {
+    background: linear-gradient(rgb(30, 30, 30), rgb(10, 10, 10));
+    transform: scale(1.03);
 }
 .white-button {
     display: inline-flex;
@@ -123,6 +135,12 @@ h1.title {
     border: 1px solid rgb(142, 142, 142);
     text-decoration: none;
     margin-bottom: 44px;
+    transition: 0.3s ease;
+}
+
+.white-button:hover {
+    background-color: #f6f8fa;
+    transform: scale(1.03);
 }
 
 details { 
@@ -159,7 +177,7 @@ details[open] summary::before {
     transform: rotate(90deg);
 }
 
-.detail-body {
+.ddbody {
     color: #57606a;
     padding: 6px 0 4px 20px;
     line-height: 1.5;

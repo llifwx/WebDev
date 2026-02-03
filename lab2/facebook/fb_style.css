@@ -156,7 +156,7 @@ footer button{
     font-size: 11px;
     color: #737373;
     cursor: pointer;
-    margin-bottom: 0;   /* сбросить общий margin */
+    margin-bottom: 0;   
     line-height: 1.2; 
 }
 
