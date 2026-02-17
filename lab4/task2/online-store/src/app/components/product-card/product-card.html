@@ -1,0 +1,58 @@
+<div class="card">
+  <!-- TOP IMAGE -->
+  <div class="media">
+    <img class="main-img" [src]="selectedImage" [alt]="product.name" />
+  </div>
+
+  <!-- THUMBNAILS -->
+  <div class="thumbs" *ngIf="product.images?.length">
+    <button
+      class="thumb"
+      *ngFor="let img of product.images"
+      (click)="selectImage(img)"
+      [class.active]="img === selectedImage"
+      type="button"
+    >
+      <img [src]="img" [alt]="product.name" />
+    </button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <h3 class="title">{{ product.name }}</h3>
+
+    <p class="desc" [class.expanded]="expanded" (click)="toggleExpand()">
+        {{ product.description }}
+    </p>
+
+    <button class="more" type="button" (click)="toggleExpand()">
+        {{ expanded ? 'Hide' : 'Read more' }}
+    </button>
+
+    <div class="row">
+      <div class="stars">
+        <span
+          class="star"
+          *ngFor="let s of stars()"
+          [class.filled]="s.filled"
+          >★</span
+        >
+      </div>
+      <span class="rating">{{ product.rating }}</span>
+    </div>
+
+    <div class="price">{{ product.price | number }} KZT</div>
+
+    <div class="actions">
+      <a class="btn primary" [href]="product.link" target="_blank" rel="noopener">
+        Buy on Kaspi
+      </a>
+
+      <div class="share">
+        <a class="btn ghost" [href]="telegramShareUrl" target="_blank" rel="noopener">
+          Share
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
