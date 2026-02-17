@@ -48,7 +48,7 @@
 }
 
 .thumb.active {
-  border-color: #ff2d8a; /* розовая обводка как на примере */
+  border-color: #ff2d8a; 
 }
 
 .content {
@@ -107,7 +107,7 @@
 
 .star {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.45); /* пустые */
+  color: rgba(255, 255, 255, 0.45); 
   text-shadow: 0 1px 0 rgba(0,0,0,0.15);
 }
 

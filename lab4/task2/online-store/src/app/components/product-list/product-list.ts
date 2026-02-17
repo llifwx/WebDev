@@ -193,7 +193,6 @@ export class ProductList {
     const q = this.searchTerm.trim().toLowerCase();
     if (!q) return this.products;
 
-    // Поиск по одному слову (и по части слова) в name/description
     return this.products.filter((p) => {
       const text = `${p.name} ${p.description}`.toLowerCase();
       return text.includes(q);
