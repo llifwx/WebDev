@@ -15,22 +15,25 @@ export class App {
   searchTerm = '';
 
   categories: Category[] = [];
-  selectedCategoryId: number | null = null;
+  selectedCategoryId: number = 0;
   selectedProducts: Product[] = [];
 
   constructor(private productService: ProductService) {
     this.categories = this.productService.getCategories();
-    this.categories = [{id: -1, name : 'All'}, ...this.categories];
+    this.categories = [{id: 0, name : 'All'}, ...this.categories];
   }
 
-  selectCategory(id: number) {
+  ngOnInit() {
+    this.selectedProducts = [...this.productService.getProducts()];
+  }
 
-    if (this.selectedCategoryId === -1) {
+  public selectCategory (id: number) {
+    if (id === 0) {
+      this.selectedCategoryId = id;
       this.selectedProducts = this.productService.getProducts();
     } else {
       this.selectedCategoryId = id;
       this.selectedProducts = [...this.productService.getProductsBycategoryId(id)];
     }
-
   }
 }

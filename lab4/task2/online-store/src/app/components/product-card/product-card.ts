@@ -14,9 +14,12 @@ export class ProductCard implements OnInit {
   @Input() product!: Product;
 
   selectedImage = '';
+  liked : boolean = false;
+  likes : number = 0;
 
   ngOnInit(): void {
     this.selectedImage = this.product.image || this.product.images?.[0] || '';
+    this.likes = this.product.likes;
   }
 
   selectImage(img: string) {
@@ -34,9 +37,8 @@ export class ProductCard implements OnInit {
     )}&text=${encodeURIComponent(this.product.name)}`;
   }
 
-  // звезды
   stars(): { filled: boolean }[] {
-    const r = Math.round(this.product.rating); // можно поменять на Math.floor
+    const r = Math.round(this.product.rating); 
     return Array.from({ length: 5 }, (_, i) => ({ filled: i < r }));
   }
 
@@ -44,5 +46,16 @@ export class ProductCard implements OnInit {
 
   toggleExpand() {
     this.expanded = !this.expanded;
+  }
+
+  toggleLike() : void {
+    if (!this.liked) {
+      this.likes += 1;
+    }
+    else {
+      this.likes -= 1;
+    }
+
+    this.liked = !this.liked;
   }
 }

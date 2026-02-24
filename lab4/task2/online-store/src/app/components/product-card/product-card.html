@@ -37,8 +37,22 @@
       </div>
       <span class="rating">{{ product.rating }}</span>
     </div>
-
-    <div class="price">{{ product.price | number }} KZT</div>
+    <div class="price-like-container">
+       <div class="price">{{ product.price | number }} KZT</div>
+       <div class="like-container">
+        @if(liked) {
+          <button (click) = "toggleLike()" class = "btn-like">
+            <img src="/assets/liked.png" alt="">
+            {{ this.likes }}
+          </button>
+        } @else {
+          <button (click) = "toggleLike()" class = "btn-like">
+            <img src="/assets/unliked.png" alt="">
+            {{ this.likes }}
+          </button>
+        }
+       </div>
+    </div>
 
     <div class="actions">
       <a class="btn primary" [href]="product.link" target="_blank" rel="noopener">

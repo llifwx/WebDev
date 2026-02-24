@@ -23,17 +23,10 @@
   </aside>
 
   <main class="content">
-    @if (selectedCategoryId === -1) {
       <app-product-list
         [products]="selectedProducts"
         [searchTerm]="searchTerm">
       </app-product-list>
-    } @else {
-      <app-product-list
-        [products]="selectedProducts"
-        [searchTerm]="searchTerm">
-      </app-product-list>
-    }
   </main>
 </div>
 

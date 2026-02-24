@@ -160,3 +160,21 @@
   color: #2b2b2b;
   border-color: rgba(255, 255, 255, 0.5);
 }
+
+.price-like-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-like {
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 2rem;
+}
+
+.btn-like img {
+  width: 2rem;
+  height: 2rem;
+}
