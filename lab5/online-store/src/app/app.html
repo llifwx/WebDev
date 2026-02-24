@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Store</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<header class="header">
+  <div class="logo">PinkStore</div>
+
+  <div class="search">
+    <input
+      type="text"
+      placeholder="Search products..."
+      [value]="searchTerm"
+      (input)="searchTerm = ($any($event.target).value)"
+      (keydown.enter)="$event.preventDefault()"
+    />
+  </div>
+
+  <div class="actions">
+    <button class="btn-outline">Login</button>
+  </div>
+</header>
+
+
+<body>
+  <app-product-list [searchTerm]="searchTerm"></app-product-list>
+</body>
+</html>
+
+
+

@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Store</title>
-  <link rel="stylesheet" href="app.css">
-</head>
-
 <header class="header">
   <div class="logo">PinkStore</div>
 
@@ -16,20 +7,37 @@
       placeholder="Search products..."
       [value]="searchTerm"
       (input)="searchTerm = ($any($event.target).value)"
-      (keydown.enter)="$event.preventDefault()"
     />
-  </div>
-
-  <div class="actions">
-    <button class="btn-outline">Login</button>
   </div>
 </header>
 
+<div class="layout">
+  <aside class="cats">
+    @for (c of categories; track c.id) {
+      <button
+        (click)="selectCategory(c.id)"
+        [class.active]="c.id === selectedCategoryId">
+        {{ c.name }}
+      </button>
+    }
+  </aside>
 
-<body>
-  <app-product-list [searchTerm]="searchTerm"></app-product-list>
-</body>
-</html>
+  <main class="content">
+    @if (selectedCategoryId === -1) {
+      <app-product-list
+        [products]="selectedProducts"
+        [searchTerm]="searchTerm">
+      </app-product-list>
+    } @else {
+      <app-product-list
+        [products]="selectedProducts"
+        [searchTerm]="searchTerm">
+      </app-product-list>
+    }
+  </main>
+</div>
 
-
-
+<!-- <app-product-list
+  [products]="selectedProducts"
+  [searchTerm]="searchTerm">
+</app-product-list> -->

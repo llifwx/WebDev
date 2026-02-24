@@ -25,8 +25,10 @@ function renderTodos() {
       li.innerHTML = `
         <input type="checkbox" class="checkbox" ${todo.completed ? 'checked' : ''}>
         <span class="task-text">${todo.name}</span>
+        <button class="editButton">✏️</button>
         <button class="deleteButton">🗑</button>
-        `;
+      `;
+
 
 
       todoList.appendChild(li); 
@@ -69,6 +71,19 @@ function renderTodos() {
       todos = todos.filter(todo => todo.id != taskId); 
       saveAndRender();
     }
+
+    if (clickedElement.classList.contains('editButton')) {
+      const task = todos.find(todo => todo.id == taskId);
+
+      const newText = prompt('Edit your task:', task.name);
+
+      if (newText !== null && newText.trim() !== '') {
+        task.name = newText.trim();
+        saveAndRender();
+      }
+  }
+
 });
 
+  
 renderTodos();

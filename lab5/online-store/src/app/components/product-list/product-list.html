@@ -1,0 +1,26 @@
+<div class="search-info" *ngIf="searchTerm">
+  <h2>Results for: "{{ searchTerm }}"</h2>
+</div>
+
+<div class="no-results" *ngIf="searchTerm && filteredProducts.length === 0">
+  No products found for "{{ searchTerm }}"
+</div>
+
+<div class="controls">
+  <button (click)="toggleSort()" class="sort-btn">
+    Sort by price
+    {{ sortDirection === 'asc' ? '↑' : '↓' }}
+  </button>
+</div>
+
+<div class="grid">
+  <app-product-card
+    *ngFor="let product of filteredProducts"
+    [product]="product">
+  </app-product-card>
+
+</div>
+
+
+
+

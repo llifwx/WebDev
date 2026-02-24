@@ -3,7 +3,7 @@
     <img class="main-img" [src]="selectedImage" [alt]="product.name" />
   </div>
 
-  <div class="thumbs" *ngIf="product.images.length">
+  <div class="thumbs" *ngIf="product.images?.length">
     <button
       class="thumb"
       *ngFor="let img of product.images"
