@@ -1,0 +1,39 @@
+<!-- <h1>Albums</h1>
+
+<div *ngIf="loading">Loading albums...</div>
+<div *ngIf="!loading && error" class="error">{{ error }}</div>
+
+<div *ngIf="!loading && !error && albums.length === 0">
+  No albums.
+</div>
+
+<div *ngIf="error">{{ error }}</div>
+
+<ul class="list" *ngIf="!loading && !error && albums.length">
+  <li class="item" *ngFor="let a of albums" (click)="openAlbum(a.id)">
+    <div class="title">
+      <b>#{{ a.id }}</b> — {{ a.title }}
+    </div>
+
+    <button class="danger" (click)="deleteAlbum(a.id, $event)">Delete</button>
+  </li>
+</ul> -->
+
+<h1>Albums</h1>
+
+<div *ngIf="albums; else loading">
+  <ul>
+    @for(a of albums; track a.id) {
+      <li>
+        <b>#{{ a.id }}</b> — {{ a.title }}
+        <!-- <button (click)="deleteAlbum(a.id, $event)">Delete</button> -->
+      </li>
+      <a [routerLink]='[a.id]'>view details</a>
+      <button class = "danger" (click)="deleteAlbum(a.id)">Delete</button>
+    }
+  </ul>
+</div>
+
+<ng-template #loading>
+  Loading albums...
+</ng-template>

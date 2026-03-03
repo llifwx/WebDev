@@ -1,0 +1,19 @@
+<div *ngIf="loading">Loading album...</div>
+<div *ngIf="!loading && error" class="error">{{ error }}</div>
+
+<div *ngIf="!loading && album">
+  <h1>Album #{{ album.id }}</h1>
+
+  <p><b>User:</b> {{ album.userId }}</p>
+
+  <h2>{{ album.title }}</h2>
+
+  <label class="label">Title</label>
+  <input class="input" [(ngModel)]="titleDraft" />
+
+  <div class="actions">
+    <button (click)="save()">Save</button>
+    <a [routerLink]="['/albums', album.id, 'photos']">View Photos</a>
+    <button [routerLink]="['/albums']">Back</button>
+  </div>
+</div>

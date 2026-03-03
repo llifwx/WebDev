@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
+
 
 
 @Component({
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-card.css',
 })
 export class ProductCard implements OnInit {
+  @Output() delete = new EventEmitter<number>();
   @Input() product!: Product;
 
   selectedImage = '';
@@ -24,6 +26,13 @@ export class ProductCard implements OnInit {
 
   selectImage(img: string) {
     this.selectedImage = img;
+  }
+
+  onDelete(): void {
+  const confirmDelete = confirm('Delete this product?');
+  if (confirmDelete) {
+    this.delete.emit(this.product.id);
+  }
   }
 
   get whatsappShareUrl(): string {

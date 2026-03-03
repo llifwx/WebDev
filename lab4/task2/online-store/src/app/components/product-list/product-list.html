@@ -9,6 +9,7 @@
 <div class="grid">
   <app-product-card
     *ngFor="let product of filteredProducts"
-    [product]="product">
+    [product]="product"
+    (delete)="removeProduct($event)">
   </app-product-card>
 </div>

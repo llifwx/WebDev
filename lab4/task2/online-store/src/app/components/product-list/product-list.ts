@@ -1,6 +1,5 @@
-import { Component, input, Input  } from '@angular/core';
+import { Component, input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { Product } from '../../models/product.model';
 import { ProductCard } from '../product-card/product-card';
 
@@ -11,20 +10,32 @@ import { ProductCard } from '../product-card/product-card';
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
+export class ProductList implements OnChanges {
 
-export class ProductList {
   products = input.required<Product[]>();
   searchTerm = input<string>('');
-  
+
+  localProducts: Product[] = [];
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.localProducts = [...this.products()];
+  }
+
+  removeProduct(id: number): void {
+    this.localProducts = this.localProducts.filter(p => p.id !== id);
+  }
+
   get filteredProducts(): Product[] {
     const term = this.searchTerm().trim().toLowerCase();
-    const list = this.products(); 
-    
-    if (term == 'null') return list;
+    let list = [...this.localProducts];
 
-    return list.filter(p =>
-      p.name.toLowerCase().includes(term) ||
-      p.description.toLowerCase().includes(term)
-    );
+    if (term) {
+      list = list.filter(p =>
+        p.name.toLowerCase().includes(term) ||
+        p.description.toLowerCase().includes(term)
+      );
+    }
+
+    return list;
   }
 }

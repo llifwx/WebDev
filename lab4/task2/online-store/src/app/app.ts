@@ -27,13 +27,20 @@ export class App {
     this.selectedProducts = [...this.productService.getProducts()];
   }
 
-  public selectCategory (id: number) {
-    if (id === 0) {
-      this.selectedCategoryId = id;
-      this.selectedProducts = this.productService.getProducts();
-    } else {
-      this.selectedCategoryId = id;
-      this.selectedProducts = [...this.productService.getProductsBycategoryId(id)];
-    }
+  public selectCategory(id: number) {
+  this.selectedCategoryId = id;
+
+  const all = this.productService.getProducts();
+  const filtered = this.productService.getProductsBycategoryId(id);
+
+  console.log('clicked id =', id);
+  console.log('ALL count =', all.length);
+  console.log('FILTERED count =', filtered.length);
+
+  if (id === 0) {
+    this.selectedProducts = all;
+  } else {
+    this.selectedProducts = [...filtered];
   }
+}
 }
