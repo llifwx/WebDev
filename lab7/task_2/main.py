@@ -1,31 +1,24 @@
-from models import Bicycle, Car, Vehicle
+from models import Animal, Dog, Cat
 
 
-def main() -> None:
-    vehicles: list[Vehicle] = [
-        Vehicle("Generic", "Transporter", 2020),
-        Car("Tesla", "Model 3", 2024, doors=4, electric=True),
-        Bicycle("Trek", "FX 2", 2023, gear_count=18, has_bell=True),
-    ]
+def main():
+    animal1 = Animal("Generic Animal", 5, "Brown")
+    dog1 = Dog("Buddy", 3, "Black", "Labrador")
+    cat1 = Cat("Luna", 2, "White", 9)
 
-    print("vehicle objects:")
-    for vehicle in vehicles:
-        print(vehicle)
+    animals = [animal1, dog1, cat1]
 
-    print("\nshared behavior:")
-    for vehicle in vehicles:
-        print(vehicle.start())
+    for animal in animals:
+        print(animal)
+        print(animal.speak())
+        print(animal.eat())
 
-    print("\npolymorphism (drive method):")
-    for vehicle in vehicles:
-        print(vehicle.drive())
+        if isinstance(animal, Dog):
+            print(animal.fetch())
+        elif isinstance(animal, Cat):
+            print(animal.climb())
 
-    print("\nchild-specific behavior:")
-    for vehicle in vehicles:
-        if isinstance(vehicle, Car):
-            print(vehicle.honk())
-        if isinstance(vehicle, Bicycle):
-            print(vehicle.ring_bell())
+        print("-" * 40)
 
 
 if __name__ == "__main__":

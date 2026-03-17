@@ -1,44 +1,44 @@
-class Vehicle:
-    def __init__(self, brand: str, model: str, year: int) -> None:
-        self.brand = brand
-        self.model = model
-        self.year = year
+class Animal:
+    def __init__(self, name, age, color):
+        self.name = name
+        self.age = age
+        self.color = color
 
-    def start(self) -> str:
-        return f"{self.brand} {self.model} starts moving."
+    def speak(self):
+        return f"{self.name} makes a sound."
 
-    def drive(self) -> str:
-        return f"{self.brand} {self.model} is driving on the road."
+    def eat(self):
+        return f"{self.name} is eating."
 
-    def __str__(self) -> str:
-        return f"{self.year} {self.brand} {self.model}"
-
-
-class Car(Vehicle):
-    def __init__(self, brand: str, model: str, year: int, doors: int, electric: bool) -> None:
-        super().__init__(brand, model, year)
-        self.doors = doors
-        self.electric = electric
-
-    def drive(self) -> str:
-        power_type = "electric" if self.electric else "gas-powered"
-        return f"Car {self} ({power_type}) cruises smoothly with {self.doors} doors."
-
-    def honk(self) -> str:
-        return f"{self.brand} {self.model}: Beep beep!"
+    def __str__(self):
+        return f"Animal(name={self.name}, age={self.age}, color={self.color})"
 
 
-class Bicycle(Vehicle):
-    def __init__(self, brand: str, model: str, year: int, gear_count: int, has_bell: bool) -> None:
-        super().__init__(brand, model, year)
-        self.gear_count = gear_count
-        self.has_bell = has_bell
+class Dog(Animal):
+    def __init__(self, name, age, color, breed):
+        super().__init__(name, age, color)
+        self.breed = breed
 
-    def drive(self) -> str:
-        bell_text = "with a bell" if self.has_bell else "without a bell"
-        return f"Bicycle {self} is pedaled through the park ({self.gear_count} gears, {bell_text})."
+    def speak(self):
+        return f"{self.name} says: Woof woof! ૮ • ﻌ - ა"
 
-    def ring_bell(self) -> str:
-        if not self.has_bell:
-            return f"{self.brand} {self.model} has no bell to ring."
-        return f"{self.brand} {self.model}: Ring ring!"
+    def fetch(self):
+        return f"{self.name} is fetching the ball. ૮ • ﻌ - ა"
+
+    def __str__(self):
+        return f"Dog(name={self.name}, age={self.age}, color={self.color}, breed={self.breed} ૮ • ﻌ - ა)"
+
+
+class Cat(Animal):
+    def __init__(self, name, age, color, lives_left):
+        super().__init__(name, age, color)
+        self.lives_left = lives_left
+
+    def speak(self):
+        return f"{self.name} says: Meow! ₍^. .^₎Ⳋ"
+
+    def climb(self):
+        return f"{self.name} is climbing a tree. ₍^. .^₎Ⳋ"
+
+    def __str__(self):
+        return f"Cat(name={self.name}, age={self.age}, color={self.color}, lives_left={self.lives_left} ₍^. .^₎Ⳋ)"
